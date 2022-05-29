@@ -40,11 +40,12 @@
         <button id="but1">Antes de Cristo</button>
         <button id="but2">Depois de Cristo</button>
         <p id="res"></p>
-        <input type="number" name="ac" id="ac"> 
+        <input type="number" name="ac" id="ac" value="2023" min="2023"> 
         <button id="but3">Calcular ano nascimento</button>
         <p id="resu"></p>
         <input type="number" name="dc" id="dc"> 
         <button id="but4">Calcular ano nascimento</button>
+        <p id="resul"></p>
     </section>
 
     <script>
@@ -56,13 +57,16 @@
         let but4 = document.getElementById('but4')
         let result1 = document.getElementById('res')
         let result2 = document.getElementById('resu')
+        let result3 = document.querySelector('p#resul')
 
+        let anoAtual = new Date().getFullYear()
         antesCristo.onclick = function()  {
             result1.innerHTML = `Digite a sua idade na caixa abaixo:`
             idadeAC.style.display = "block";
             but3.style.display = "block";
             but3.onclick = function()  {
-                alert('Vandy')
+                let anoNasc1 = anoAtual - idadeAC
+                result2.innerHTML += `Tendo ${idadeAC.value} anos, nasceu no ano ${anoNasc1} a.C.`
             }
             
         }
@@ -71,9 +75,9 @@
             idadeDC.style.display = "block";
             but4.style.display = "block";
             but4.onclick = function()  {
-                alert('Vandyyyy')
+                let anoNasc2 = anoAtual - idadeDC
+                result3.innerHTML += `Tendo ${idadeDC.value} anos, nasceu no ano de ${anoNasc2.value}.`                
             }
-            
         }
     </script>
     
