@@ -5,6 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ano de nascimento</title>
+    <style>
+        input#ac  {
+            display: none;
+            margin-left: 23px;
+        }
+        input#dc  {
+            display: none;
+            margin-left: 23px;
+        }
+        button#but3  {
+            display: none;
+            width: 177px;
+            margin-left: 23px;
+        }
+        button#but4  {
+            display: none;
+            width: 177px;
+            margin-left: 23px;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -17,16 +37,45 @@
 
     <section>
         <p>Em que época nasceu? Clica em um dos botões abaixo.</p>
-        <input type="button" value="Antes de Cristo" onclick="antesCristo()">
-        <input type="button" value="Depois de Cristo" onclick="depoisCristo()">
+        <button id="but1">Antes de Cristo</button>
+        <button id="but2">Depois de Cristo</button>
+        <p id="res"></p>
+        <input type="number" name="ac" id="ac"> 
+        <button id="but3">Calcular ano nascimento</button>
+        <p id="resu"></p>
+        <input type="number" name="dc" id="dc"> 
+        <button id="but4">Calcular ano nascimento</button>
     </section>
 
     <script>
-        function antesCristo()  {
-            let ac = addEventListener('click', blabla)
+        let antesCristo = document.getElementById('but1')
+        let depoisCristo = document.getElementById('but2')
+        let idadeAC = document.getElementById('ac')
+        let but3 = document.getElementById('but3')
+        let idadeDC = document.getElementById('dc')
+        let but4 = document.getElementById('but4')
+        let result1 = document.getElementById('res')
+        let result2 = document.getElementById('resu')
+
+        antesCristo.onclick = function()  {
+            result1.innerHTML = `Digite a sua idade na caixa abaixo:`
+            idadeAC.style.display = "block";
+            but3.style.display = "block";
+            but3.onclick = function()  {
+                alert('Vandy')
+            }
+            
+        }
+        depoisCristo.onclick = function()  {
+            result2.innerHTML = `Digite a sua idade na caixa abaixo:`
+            idadeDC.style.display = "block";
+            but4.style.display = "block";
+            but4.onclick = function()  {
+                alert('Vandyyyy')
+            }
+            
         }
     </script>
-    
     
 </body>
 </html>
