@@ -66,17 +66,17 @@
             but3.style.display = "block";
             but3.onclick = function()  {
                 let anoNasc1 = anoAtual - idadeAC
-                result2.innerHTML += `Tendo ${idadeAC.value} anos, nasceu no ano ${anoNasc1} a.C.`
+                result2.innerHTML += `Tendo ${idadeAC.value} anos, nasceu no ano ${anoNasc1} a.C.<br><br>`
             }
             
         }
         depoisCristo.onclick = function()  {
-            result2.innerHTML = `Digite a sua idade na caixa abaixo:`
+            result2.innerHTML += `Digite a sua idade na caixa abaixo:`
             idadeDC.style.display = "block";
             but4.style.display = "block";
             but4.onclick = function()  {
                 let anoNasc2 = anoAtual - idadeDC
-                result3.innerHTML += `Tendo ${idadeDC.value} anos, nasceu no ano de ${anoNasc2.value}.`                
+                result3.innerHTML += `Tendo ${idadeDC.value} anos, nasceu no ano de ${anoNasc2}.<br><br>`                
             }
         }
     </script>
