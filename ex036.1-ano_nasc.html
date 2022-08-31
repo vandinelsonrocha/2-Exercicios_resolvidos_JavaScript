@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ano de nascimento</title>
     <style>
+        /*Inicialmente os inputs...:*/
         input#ac  {
             display: none;
             margin-left: 23px;
@@ -14,6 +15,7 @@
             display: none;
             margin-left: 23px;
         }
+        /*...e os botões para calcular ano nascimento ficam escondidos.*/
         button#but3  {
             display: none;
             width: 177px;
@@ -28,12 +30,11 @@
 </head>
 <body>
     <header>
-        <h1>Saiba o ano em que nasceu</h1>
+        <hgroup>
+            <h1>Saiba o ano em que nasceu</h1>
+            <h3>Aqui você saberá o ano em que qualquer ser da Terra nasceu, desde pessoas, animais...</h3>
+        </hgroup>
     </header>
-
-    <section>
-        <h3>Aqui você saberá o ano em que qualquer ser da Terra nasceu desde pessoas, animais...</h3>
-    </section>
 
     <section>
         <p>Em que época nasceu? Clica em um dos botões abaixo.</p>
@@ -43,7 +44,7 @@
         <input type="number" name="ac" id="ac" value="2023" min="2023"> 
         <button id="but3">Calcular ano nascimento</button>
         <p id="resu"></p>
-        <input type="number" name="dc" id="dc"> 
+        <input type="number" name="dc" id="dc" placeholder="digite a sua idade"> 
         <button id="but4">Calcular ano nascimento</button>
         <p id="resul"></p>
     </section>
@@ -61,25 +62,23 @@
 
         let anoAtual = new Date().getFullYear()
         antesCristo.onclick = function()  {
-            result1.innerHTML = `Digite a sua idade na caixa abaixo:`
-            idadeAC.style.display = "block";
-            but3.style.display = "block";
+            result1.innerHTML = `Digite a sua idade na caixa abaixo:<br>`
+            //qd clicar nos botões ANTES DE CRISTO/DEPOIS DE CRISTO...
+            idadeAC.style.display += "block";
+            but3.style.display += "block";
             but3.onclick = function()  {
-                let anoNasc1 = anoAtual - idadeAC
-                result2.innerHTML += `Tendo ${idadeAC.value} anos, nasceu no ano ${anoNasc1} a.C.<br><br>`
+                result2.innerHTML += `Tendo ${idadeAC.value} anos, nasceu no ano <strong>${Number(idadeAC.value)-anoAtual}a.C.</strong><br><br>`
             }
-            
         }
         depoisCristo.onclick = function()  {
-            result2.innerHTML += `Digite a sua idade na caixa abaixo:`
-            idadeDC.style.display = "block";
-            but4.style.display = "block";
+            result2.innerHTML += `Digite a sua idade na caixa abaixo:<br>`
+            //...os inputs e os botões para calcular ano nascimento aparecem.
+            idadeDC.style.display += "block";
+            but4.style.display += "block";
             but4.onclick = function()  {
-                let anoNasc2 = anoAtual - idadeDC
-                result3.innerHTML += `Tendo ${idadeDC.value} anos, nasceu no ano de ${anoNasc2}.<br><br>`                
+                result3.innerHTML += `Tendo ${idadeDC.value} anos, nasceu no ano de <strong>${anoAtual-Number(idadeDC.value)}</strong>.<br><br>`                
             }
         }
     </script>
-    
 </body>
 </html>
