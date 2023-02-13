@@ -1,0 +1,1 @@
+var equipas = ['FC Porto','Real Madrid','Chelsea','Inter','B.Dortmund'];

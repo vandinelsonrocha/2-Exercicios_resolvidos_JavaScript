@@ -40,43 +40,70 @@
         <p>Em que época nasceu? Clica em um dos botões abaixo.</p>
         <button id="but1">Antes de Cristo</button>
         <button id="but2">Depois de Cristo</button>
+
         <p id="res"></p>
         <input type="number" name="ac" id="ac" value="2023" min="2023"> 
         <button id="but3">Calcular ano nascimento</button>
+
+        <p id="resultado1"></p>
+
         <p id="resu"></p>
         <input type="number" name="dc" id="dc" placeholder="digite a sua idade"> 
         <button id="but4">Calcular ano nascimento</button>
-        <p id="resul"></p>
+
+        <p id="resultado2"></p>
     </section>
 
     <script>
         let antesCristo = document.getElementById('but1')
         let depoisCristo = document.getElementById('but2')
+
         let idadeAC = document.getElementById('ac')
         let but3 = document.getElementById('but3')
+
         let idadeDC = document.getElementById('dc')
         let but4 = document.getElementById('but4')
+
         let result1 = document.getElementById('res')
         let result2 = document.getElementById('resu')
-        let result3 = document.querySelector('p#resul')
 
-        let anoAtual = new Date().getFullYear()
+        let resultado1 = document.querySelector("#resultado1")
+        let erro2 = document.querySelector("#resultado2")
+
+        var anoAtual = new Date().getFullYear()
+
         antesCristo.onclick = function()  {
             result1.innerHTML = `Digite a sua idade na caixa abaixo:<br>`
             //qd clicar nos botões ANTES DE CRISTO/DEPOIS DE CRISTO...
             idadeAC.style.display += "block";
             but3.style.display += "block";
+
             but3.onclick = function()  {
-                result2.innerHTML += `Tendo ${idadeAC.value} anos, nasceu no ano <strong>${Number(idadeAC.value)-anoAtual}a.C.</strong><br><br>`
+                if(idadeAC.value.length == "")  {
+                    resultado1.innerHTML = `\u{26A0} Informe a idade.`
+                } else if(idadeAC.value < anoAtual+1)  {
+                    resultado1.innerHTML = `\u{26A0} Um indivíduo nascido antes de Cristo não pode ter menos que ${anoAtual+1} anos.`
+                } else  {
+                    resultado1.innerHTML = `Tendo ${idadeAC.value} anos, nasceu no ano <strong>${Number(idadeAC.value)-anoAtual}a.C.</strong><br><br>`
+                }
             }
         }
         depoisCristo.onclick = function()  {
-            result2.innerHTML += `Digite a sua idade na caixa abaixo:<br>`
+            result2.innerHTML = `Digite a sua idade na caixa abaixo:<br>`
             //...os inputs e os botões para calcular ano nascimento aparecem.
             idadeDC.style.display += "block";
             but4.style.display += "block";
+            
             but4.onclick = function()  {
-                result3.innerHTML += `Tendo ${idadeDC.value} anos, nasceu no ano de <strong>${anoAtual-Number(idadeDC.value)}</strong>.<br><br>`                
+                if(idadeDC.value.length == "")  {
+                    resultado2.innerHTML = `\u{26A0} Informe a idade.`
+                } else if(idadeDC.value < 0)  {
+                    resultado2.innerHTML = `\u{26A0} Um indivíduo nascido depois de Cristo não pode ter idade inferior a 0.`
+                } else if(idadeDC.value > anoAtual)  {
+                    resultado2.innerHTML = `\u{26A0} Um indivíduo nascido depois de Cristo não pode ter mais que ${anoAtual} anos.`
+                } else  {            
+                    resultado2.innerHTML = `Tendo ${idadeDC.value} anos, nasceu no ano de <strong>${anoAtual-Number(idadeDC.value)}</strong>.<br><br>`
+                } 
             }
         }
     </script>

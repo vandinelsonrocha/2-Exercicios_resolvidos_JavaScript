@@ -7,25 +7,53 @@
     <title>Fatorial</title>
 
     <style>
-        input#but  {
-            background-color: blue;
+        @import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
+
+        body {
+            font: 12pt Arial;
+        }
+
+        form p#paragrafo  {
+            font-size: 16pt;
+        }
+
+        h1, span {
+            font-family: 'Pacifico', cursive;
+            font-weight: normal;
+        }
+
+        input  {
+            outline: none;
+        }
+        input[type=number] {
+            font-size: 12pt;
+            padding: 5px;
+            width: 150px;
+            margin-right: 30px;
+        }
+        input[type=submit] { 
+            background-color: green; 
+            color: white; 
+            font-size: 12pt; 
+            padding: 5px; 
+            width: 150px;
+            cursor: pointer;
         }
     </style>
+
 </head>
 <body>
     <section>
         <h1>Cálculo de fatorial</h1>
-        <p>Digite um número entre 1 e 21 na caixa abaixo:</p>
-    </section>
+        <p>Digite um número inteiro entre 1 e 21 na caixa abaixo e clique no botão para calcular o seu fatorial:</p>
         <form action="#" method="get">
-            <p>
-                <label for="fnum">Número: </label>
-                <input type="number" name="num" id="fnum" min="1" max="21" placeholder="Número">
-                <input type="submit" value="Calcular fatorial" formaction="javascript:fatorial()">
+    <!--usar formulário facilita muito pq assim pode usar expressões que obrigam a preencher os campos da maneira que definir, diminuindo assim muitos ifs no seu código js-->
+            <p id="paragrafo"><label for="cmpNum">Número:</label>
+                <input type="number" name="txtNum" id="cmpNum" placeholder="digite um número" min="1" max="21" required/>
+                <input type="submit" value="Calcular fatorial" formaction="javascript:calcular_fatorial()">
+            <!--usando o formaction, a função só vai executar se o(s) campo(s) estiver(em) devidamente preenchido(s)-->
             </p>
         </form>
-
-    <section>
         <p id="res"></p>
     </section>
     

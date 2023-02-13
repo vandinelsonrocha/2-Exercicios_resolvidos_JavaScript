@@ -1,0 +1,42 @@
+*  {
+    margin: 0;
+    padding: 0;
+}
+section.container  {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100%;
+    border: 2px solid black;
+}
+section.container header h1  {
+    text-align: center;
+}
+
+div.imagemEquipa  {
+    float: left;
+    width: 130px;
+    height: 130px;
+    margin: 10px;
+    border: 5px solid #ffffff;
+}
+div img.equipa  {
+    margin-top: 32px;
+    margin-left: 32px;
+}
+#idPorto  {
+    background-image: linear-gradient(to right, rgba(255,255,255,.8), rgba(0,0,255,.8));
+}
+#idInter  {
+    background-image: linear-gradient(to right, rgba(0,0,0,.8), rgba(0,0,255,.8));
+}
+#idDortmund  {
+    background-image: linear-gradient(to right, rgba(0,0,0,.8), yellow);
+}
+
+spam  {
+    text-align: center;
+}
+
+
